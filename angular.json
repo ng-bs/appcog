@@ -27,10 +27,14 @@
               "apps/website/src/favicon.ico",
               "apps/website/src/assets"
             ],
-            "styles": [
-              "apps/website/src/styles.scss"
-            ],
-            "scripts": []
+            "styles": ["apps/website/src/styles.scss"],
+            "scripts": [
+              {
+                "input": "apps/website/src/app-settings.js",
+                "inject": true,
+                "bundleName": "app-settings-module"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -61,6 +65,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "local-network": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.local-network.ts"
+                }
+              ]
             }
           }
         },
@@ -72,6 +84,9 @@
           "configurations": {
             "production": {
               "browserTarget": "website:build:production"
+            },
+            "local-network": {
+              "browserTarget": "website:build:local-network"
             }
           }
         },
@@ -92,9 +107,7 @@
               "apps/website/src/favicon.ico",
               "apps/website/src/assets"
             ],
-            "styles": [
-              "apps/website/src/styles.scss"
-            ],
+            "styles": ["apps/website/src/styles.scss"],
             "scripts": []
           }
         },
@@ -106,9 +119,7 @@
               "apps/website/tsconfig.spec.json",
               "apps/website/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -153,12 +164,11 @@
               "libs/settings/tsconfig.lib.json",
               "libs/settings/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "website"
 }

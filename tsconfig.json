@@ -20,10 +20,7 @@
     ],
     "paths": {
       "settings": [
-        "dist/settings"
-      ],
-      "settings/*": [
-        "dist/settings/*"
+        "libs/settings/src/public-api.ts"
       ]
     }
   },
